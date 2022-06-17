@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>{{ current_dojo.name }} Dojo Details</h1>
+
+    <div>
+        <table>
+
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Options</th>
+            </tr>
+
+            {% for ninja in current_dojo.list_ninjas: %}
+            <tr>
+
+                <td>
+                    {{ ninja.first_name }}
+                </td>
+
+                <td>
+                    {{ ninja.last_name }}
+                </td>
+
+                <td>
+                    {{ ninja.age }}
+                </td>
+
+                <td>
+                    {{ ninja.created_at }}
+                </td>
+
+                <td>
+                    {{ ninja.updated_at }}
+                </td>
+
+                <td>
+                    <a href="/ninja/{{ ninja.id }}/delete">Delete</a>
+                </td>
+            </tr>
+            
+            {% endfor %}
+
+        </table>
+    </div>
+
+</body>
+</html>
